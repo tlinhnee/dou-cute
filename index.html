@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dou VIP Troll Xịn</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: radial-gradient(circle, #ff9a9e, #fad0c4);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    overflow: hidden;
+    cursor: url('https://cdn-icons-png.flaticon.com/512/64/64572.png'), auto; /* Cute cursor */
+  }
+  h1 {
+    position: absolute;
+    font-size: 60px;
+    color: white;
+    text-shadow: 3px 3px black;
+    animation: rainbow 2s linear infinite;
+  }
+  @keyframes rainbow {
+    0% { color: red; }
+    20% { color: orange; }
+    40% { color: yellow; }
+    60% { color: green; }
+    80% { color: blue; }
+    100% { color: violet; }
+  }
+  .emoji {
+    position: absolute;
+    font-size: 50px;
+    animation: bounce 1s infinite alternate;
+  }
+  @keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-30px); }
+  }
+  button {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 15px;
+    border: none;
+    background-color: #fff;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+  }
+  .floating-text {
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px black;
+  }
+</style>
+</head>
+<body>
+
+<h1 id="douTitle">✨ Dou VIP Troll ✨</h1>
+<button onclick="troll()">Click để Dou troll bạn</button>
+
+<audio id="douMusic" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" autoplay loop></audio>
+
+<script>
+// Popup troll ngẫu nhiên
+function troll() {
+  const messages = [
+    "Dou đã xuất hiện! 😎",
+    "Bạn vừa bị Dou troll 😂",
+    "Không thoát được đâu 💥",
+    "Dou VIP level max 🔥",
+    "Hahaha, Dou biết hết mọi thứ 😏"
+  ];
+  alert(messages[Math.floor(Math.random() * messages.length)]);
+}
+
+// Emoji rơi
+setInterval(() => {
+  const emojiList = ["💥","😂","😎","✨","🔥","🎉"];
+  const emoji = document.createElement('div');
+  emoji.textContent = emojiList[Math.floor(Math.random() * emojiList.length)];
+  emoji.style.position = 'absolute';
+  emoji.style.left = Math.random() * window.innerWidth + 'px';
+  emoji.style.top = '-50px';
+  emoji.style.fontSize = Math.random() * 30 + 20 + 'px';
+  document.body.appendChild(emoji);
+  const fall = setInterval(() => {
+    emoji.style.top = (parseInt(emoji.style.top) + 5) + 'px';
+    if(parseInt(emoji.style.top) > window.innerHeight) {
+      emoji.remove();
+      clearInterval(fall);
+    }
+  }, 50);
+}, 200);
+
+// Chữ nhảy lung tung
+setInterval(() => {
+  const text = document.createElement('div');
+  text.textContent = "Dou VIP 😎🔥";
+  text.className = 'floating-text';
+  text.style.left = Math.random() * (window.innerWidth - 100) + 'px';
+  text.style.top = Math.random() * (window.innerHeight - 50) + 'px';
+  document.body.appendChild(text);
+  setTimeout(() => text.remove(), 3000);
+}, 500);
+
+// Dou title nhảy theo mouse
+const title = document.getElementById('douTitle');
+document.addEventListener('mousemove', e => {
+  title.style.left = (e.clientX - title.offsetWidth/2) + 'px';
+  title.style.top = (e.clientY - 100) + 'px';
+});
+</script>
+
+</body>
+  </html>
