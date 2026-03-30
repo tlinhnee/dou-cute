@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Dou 💖</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff6a88, #ff99ac);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial;
+    text-align: center;
+    overflow: hidden;
+    color: white;
+  }
+
+  h1 {
+    font-size: 42px;
+    animation: glow 1.5s infinite alternate;
+  }
+
+  @keyframes glow {
+    from { text-shadow: 0 0 10px white; }
+    to { text-shadow: 0 0 30px pink; }
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    background: white;
+    color: #ff4e50;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    transform: scale(1.1);
+  }
+
+  .heart {
+    position: absolute;
+    font-size: 20px;
+    animation: fall 5s linear infinite;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(-10vh); opacity: 1; }
+    100% { transform: translateY(110vh); opacity: 0; }
+  }
+</style>
+</head>
+
+<body>
+
+<div>
+  <h1 id="text">Đang xác minh Dou... 😳</h1>
+  <button onclick="show()">Xác nhận danh tính</button>
+</div>
+
+<script>
+  setTimeout(() => {
+    document.getElementById("text").innerHTML =
+      "✔ Dou chính chủ 😎💖<br>Người dễ thương nhất hệ mặt trời ✨";
+  }, 1500);
+
+  function show() {
+    alert("Dou xác nhận thành công 😏💖");
+  }
+
+  function taoTim() {
+    const tim = document.createElement("div");
+    tim.className = "heart";
+    tim.innerHTML = "💖";
+    tim.style.left = Math.random() * 100 + "vw";
+    tim.style.fontSize = (Math.random() * 20 + 15) + "px";
+    document.body.appendChild(tim);
+
+    setTimeout(() => tim.remove(), 5000);
+  }
+
+  setInterval(taoTim, 300);
+</script>
+
+</body>
+  </html>
